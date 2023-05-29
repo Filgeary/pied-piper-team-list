@@ -1,11 +1,12 @@
 import React from 'react'
-import styles from './App.module.css'
+import AppInfo from '../components/AppInfo'
+// import styles from './App.module.css'
 
 const App = () => {
   return (
-    <div>
-      <h1 className={styles.heading}>React app</h1>
-    </div>
+    <main className='container-lg p-4'>
+      <AppInfo />
+    </main>
   )
 }
 

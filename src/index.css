@@ -118,3 +118,9 @@ input[type='radio'].visually-hidden {
   clip-path: inset(100%);
   overflow: hidden;
 }
+
+/* Custom props */
+:root {
+  --app-bg-color: hsl(0, 0%, 15%);
+  --app-font-light-color: white;
+}
