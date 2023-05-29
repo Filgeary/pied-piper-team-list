@@ -1,7 +1,7 @@
 import React from 'react'
 import AppFilter from '../components/AppFilter'
 import AppInfo from '../components/AppInfo'
-import EmployeesListItem from '../components/EmployeesListItem'
+import EmployeesList from '../components/EmployeesList'
 import SearchPanel from '../components/SearchPanel'
 // import styles from './App.module.css'
 
@@ -18,11 +18,7 @@ const App = () => {
         <AppFilter />
       </section>
 
-      <section>
-        <EmployeesListItem />
-        <EmployeesListItem />
-        <EmployeesListItem />
-      </section>
+      <EmployeesList />
     </main>
   )
 }

@@ -26,7 +26,7 @@
   cursor: pointer;
 }
 
-.wrapper .btn-star {
+.wrapper i {
   width: 35px;
   height: 35px;
   text-align: center;
@@ -37,7 +37,7 @@
   opacity: 0;
 }
 
-.wrapper.like .btn-star {
+.wrapper.like i {
   opacity: 1;
   transform: translateX(0px);
 }
@@ -47,6 +47,6 @@
   color: #e09f3e;
 }
 
-.wrapper.increase .btn-star {
+.wrapper.increase i {
   color: #aeaeae;
 }
