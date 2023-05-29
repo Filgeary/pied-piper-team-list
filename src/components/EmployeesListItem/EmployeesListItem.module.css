@@ -1,0 +1,52 @@
+.wrapper {
+  padding: 4px 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.wrapper:last-child {
+  border-bottom: none;
+}
+
+.wrapper span {
+  cursor: pointer;
+  min-width: 50%;
+}
+
+.wrapper input {
+  text-align: center;
+  border: 0;
+}
+
+.wrapper button {
+  width: 35px;
+  height: 35px;
+  margin: 3px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+.wrapper .btn-star {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  font-size: 16px;
+  transition: 0.3s all;
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+.wrapper.like .btn-star {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.wrapper.increase .wrapper-label,
+.wrapper.increase .wrapper-input {
+  color: #e09f3e;
+}
+
+.wrapper.increase .btn-star {
+  color: #aeaeae;
+}
