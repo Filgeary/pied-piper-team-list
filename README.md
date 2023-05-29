@@ -1,5 +1,3 @@
-# template_CRA-React17-JS
+# react-simple-staff-accounting-demo
 
-- minimal template – nothing serious
-- template based on CRA 4 / React 17 / NodeJS 16
-- codegen to create Components
+- for learning purpose
