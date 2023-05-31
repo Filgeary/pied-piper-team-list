@@ -2,6 +2,13 @@
   "name": "react-app",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "codegen": "node .codegen $1"
+  },
   "dependencies": {
     "bootstrap": "^5.2.3",
     "classnames": "^2.3.2",
@@ -15,12 +22,9 @@
     "@testing-library/user-event": "13.x",
     "prettier": "2.8.8"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "codegen": "node .codegen $1"
+  "resolutions": {
+    "//": "See https://github.com/facebook/create-react-app/issues/11773",
+    "react-error-overlay": "6.0.9"
   },
   "eslintConfig": {
     "extends": [
