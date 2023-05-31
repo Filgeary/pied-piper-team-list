@@ -42,8 +42,7 @@
   transform: translateX(0px);
 }
 
-.wrapper.increase .wrapper-label,
-.wrapper.increase .wrapper-input {
+.promotion {
   color: #e09f3e;
 }
 
