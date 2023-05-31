@@ -4,7 +4,7 @@ import EmployeesListItem from '../EmployeesListItem'
 
 const EmployeesList = ({ employees }) => {
   return (
-    <ul>
+    <ul className='p-0'>
       {employees.map(employee => {
         const { id, fullName, salary, isPromotioned } = employee
 
