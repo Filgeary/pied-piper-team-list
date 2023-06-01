@@ -10,11 +10,13 @@
 .wrapper span {
   cursor: pointer;
   min-width: 40%;
+  transition: color 0.2s;
 }
 
 .wrapper input {
   text-align: center;
   border: 0;
+  transition: color 0.2s;
 }
 
 .wrapper button {
@@ -23,6 +25,7 @@
   margin: 3px;
   font-size: 18px;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
 }
 
