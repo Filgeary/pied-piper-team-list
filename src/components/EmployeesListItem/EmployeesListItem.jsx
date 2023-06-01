@@ -1,4 +1,5 @@
 import classnames from 'classnames/bind'
+import { truncate } from 'lodash-es'
 import React, { Component } from 'react'
 import styles from './EmployeesListItem.module.css'
 
@@ -23,7 +24,7 @@ class EmployeesListItem extends Component {
   }
 
   render() {
-    const { fullName, salary } = this.props
+    const { id, fullName, salary, onDeleteEmployee } = this.props
     const { isPromotioned, isLiked } = this.state
 
     return (
@@ -35,6 +36,10 @@ class EmployeesListItem extends Component {
             onClick={this.handleToggleIsLiked}
           >
             {fullName}
+            {' / '}
+            <small className='fst-italic fw-light'>
+              <mark>id: {truncate(String(id), { length: 10 })}</mark>
+            </small>
           </span>
           <input
             type='text'
@@ -45,7 +50,7 @@ class EmployeesListItem extends Component {
           <div className='d-flex justify-content-center align-items-center'>
             <button
               type='button'
-              className='btn-cookie btn-sm'
+              className='btn-award btn-sm'
               title='Toggle Promotion'
               onClick={this.handleToggleIsPromotioned}
             >
@@ -53,16 +58,19 @@ class EmployeesListItem extends Component {
                 xmlns='http://www.w3.org/2000/svg'
                 width='16'
                 height='16'
-                fill='#e09f3e'
+                fill={isPromotioned ? '#e09f3e' : '#bbb'}
                 viewBox='0 0 16 16'
               >
-                <path d='M2.5.5A.5.5 0 0 1 3 0h10a.5.5 0 0 1 .5.5c0 .538-.012 1.05-.034 1.536a3 3 0 1 1-1.133 5.89c-.79 1.865-1.878 2.777-2.833 3.011v2.173l1.425.356c.194.048.377.135.537.255L13.3 15.1a.5.5 0 0 1-.3.9H3a.5.5 0 0 1-.3-.9l1.838-1.379c.16-.12.343-.207.537-.255L6.5 13.11v-2.173c-.955-.234-2.043-1.146-2.833-3.012a3 3 0 1 1-1.132-5.89A33.076 33.076 0 0 1 2.5.5zm.099 2.54a2 2 0 0 0 .72 3.935c-.333-1.05-.588-2.346-.72-3.935zm10.083 3.935a2 2 0 0 0 .72-3.935c-.133 1.59-.388 2.885-.72 3.935z' />
+                <path d='m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z' />
+                <path d='M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z' />
               </svg>
             </button>
 
             <button
               type='button'
+              title='Delete'
               className='btn-trash btn-sm'
+              onClick={() => onDeleteEmployee(id)}
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
