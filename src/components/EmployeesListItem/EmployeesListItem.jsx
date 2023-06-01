@@ -38,7 +38,7 @@ class EmployeesListItem extends Component {
             {fullName}
             {' / '}
             <small className='fst-italic fw-light'>
-              <mark>id: {truncate(String(id), { length: 10 })}</mark>
+              <mark>id: {truncate(String(id), { length: 15 })}</mark>
             </small>
           </span>
           <input

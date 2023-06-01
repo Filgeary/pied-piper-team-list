@@ -23,6 +23,12 @@ class App extends Component {
     })
   }
 
+  handleAddEmployee = newItem => {
+    this.setState(prevState => {
+      return { employeesData: prevState.employeesData.concat(newItem) }
+    })
+  }
+
   render() {
     const { employeesData } = this.state
 
@@ -47,7 +53,7 @@ class App extends Component {
           employees={employeesData}
           onDeleteEmployee={this.handleDeleteEmployee}
         />
-        <EmployeesAddForm />
+        <EmployeesAddForm onAddEmployee={this.handleAddEmployee} />
       </main>
     )
   }
