@@ -14,13 +14,19 @@ const AppFilter = () => {
         type='button'
         className='btn btn-outline-secondary'
       >
-        On Promotion
+        Rewarded
       </button>
       <button
         type='button'
         className='btn btn-outline-secondary'
       >
-        Salary &gt; 1000$
+        Promotioned
+      </button>
+      <button
+        type='button'
+        className='btn btn-outline-secondary'
+      >
+        Salary &gt; 1500$
       </button>
     </div>
   )

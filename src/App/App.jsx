@@ -9,9 +9,10 @@ import SearchPanel from '../components/SearchPanel'
 class App extends Component {
   state = {
     employeesData: [
-      { id: 1, fullName: 'Adam Smit', salary: 700, isPromotioned: false },
-      { id: 2, fullName: 'Emily Adams', salary: 1500, isPromotioned: true },
-      { id: 3, fullName: 'Tom Fox', salary: 2500, isPromotioned: false },
+      { id: 1, fullName: 'Richard Boss', salary: 3000, isRewarded: true },
+      { id: 2, fullName: 'Gilfoyle Architect', salary: 1501, isRewarded: true },
+      { id: 3, fullName: 'Dinesh Javist', salary: 1500, isRewarded: false },
+      { id: 4, fullName: 'Bachman kinda-Startup-er', salary: 0, isRewarded: false },
     ],
   }
 
@@ -40,11 +41,10 @@ class App extends Component {
           style={{
             padding: '0 30px',
             borderRadius: '0px',
-            borderLeft: '4px solid tomato',
+            borderLeft: '4px solid var(--app-accent-color)',
           }}
           className='d-flex flex-column gap-3'
         >
-          <h4>Search & Filters</h4>
           <SearchPanel />
           <AppFilter />
         </section>

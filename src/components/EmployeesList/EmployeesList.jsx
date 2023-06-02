@@ -6,7 +6,7 @@ const EmployeesList = ({ employees, onDeleteEmployee }) => {
   return (
     <ul className='p-0'>
       {employees.map(employee => {
-        const { id, fullName, salary, isPromotioned } = employee
+        const { id, fullName, salary, isRewarded } = employee
 
         return (
           <EmployeesListItem
@@ -14,7 +14,7 @@ const EmployeesList = ({ employees, onDeleteEmployee }) => {
             id={id}
             fullName={fullName}
             salary={salary}
-            isPromotioned={isPromotioned}
+            isRewarded={isRewarded}
             onDeleteEmployee={onDeleteEmployee}
           />
         )

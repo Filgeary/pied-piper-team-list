@@ -1,7 +1,22 @@
 .wrapper {
+  position: relative;
   padding: 2em 2.5em;
-  color: var(--app-font-light-color);
+  color: var(--app-accent-color);
   background-color: var(--app-bg-color);
   border-radius: 16px;
-  box-shadow: 4px 4px 0 0 tomato;
+  box-shadow: 8px 8px 0 0 var(--app-accent-color);
+}
+.wrapper h1 {
+  color: var(--app-font-light-color);
+}
+
+.logo {
+  position: absolute;
+  bottom: 50%;
+  right: 1em;
+  transform: translateY(50%);
+}
+
+.counter {
+  color: var(--app-accent-color);
 }
