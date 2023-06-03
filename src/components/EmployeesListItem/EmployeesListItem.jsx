@@ -51,7 +51,7 @@ class EmployeesListItem extends Component {
             <button
               type='button'
               className='btn-award btn-sm'
-              title='Toggle reward'
+              title='Toggle Reward'
               onClick={this.handleToggleIsRewarded}
             >
               <svg

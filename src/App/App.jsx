@@ -4,6 +4,7 @@ import AppFilter from '../components/AppFilter'
 import AppInfo from '../components/AppInfo'
 import EmployeesAddForm from '../components/EmployeesAddForm'
 import EmployeesList from '../components/EmployeesList'
+import Footer from '../components/Footer'
 import Header from '../components/Header'
 import SearchPanel from '../components/SearchPanel'
 import styles from './App.module.css'
@@ -40,7 +41,7 @@ class App extends Component {
     return (
       <>
         <Header />
-        <main className={cn(styles.main, 'container-lg d-flex flex-column p-4 gap-5')}>
+        <main className={cn(styles.main, 'container-lg d-flex flex-column p-4 gap-5 mb-4')}>
           <AppInfo />
 
           <section
@@ -62,6 +63,7 @@ class App extends Component {
           />
           <EmployeesAddForm onAddEmployee={this.handleAddEmployee} />
         </main>
+        <Footer />
       </>
     )
   }
