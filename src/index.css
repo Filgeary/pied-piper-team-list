@@ -123,7 +123,7 @@ input[type='radio'].visually-hidden {
 :root {
   --app-bg-color: hsl(0, 0%, 15%);
   --app-font-light-color: white;
-  --app-accent-color: #2f9f46;
+  --app-accent-color: rgb(47, 159, 70);
 }
 
 /* Custom styles */

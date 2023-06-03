@@ -1,10 +1,14 @@
+import classNames from 'classnames/bind'
 import React, { Component } from 'react'
 import AppFilter from '../components/AppFilter'
 import AppInfo from '../components/AppInfo'
 import EmployeesAddForm from '../components/EmployeesAddForm'
 import EmployeesList from '../components/EmployeesList'
+import Header from '../components/Header'
 import SearchPanel from '../components/SearchPanel'
-// import styles from './App.module.css'
+import styles from './App.module.css'
+
+const cn = classNames.bind(styles)
 
 class App extends Component {
   state = {
@@ -34,27 +38,31 @@ class App extends Component {
     const { employeesData } = this.state
 
     return (
-      <main className='container-lg d-flex flex-column p-4 gap-5'>
-        <AppInfo />
+      <>
+        <Header />
+        <main className={cn(styles.main, 'container-lg d-flex flex-column p-4 gap-5')}>
+          <AppInfo />
 
-        <section
-          style={{
-            padding: '0 30px',
-            borderRadius: '0px',
-            borderLeft: '4px solid var(--app-accent-color)',
-          }}
-          className='d-flex flex-column gap-3'
-        >
-          <SearchPanel />
-          <AppFilter />
-        </section>
+          <section
+            style={{
+              padding: '0 30px',
+              paddingRight: '0',
+              borderRadius: '0px',
+              borderLeft: '4px solid var(--app-accent-color)',
+            }}
+            className='d-flex flex-column gap-3'
+          >
+            <SearchPanel />
+            <AppFilter />
+          </section>
 
-        <EmployeesList
-          employees={employeesData}
-          onDeleteEmployee={this.handleDeleteEmployee}
-        />
-        <EmployeesAddForm onAddEmployee={this.handleAddEmployee} />
-      </main>
+          <EmployeesList
+            employees={employeesData}
+            onDeleteEmployee={this.handleDeleteEmployee}
+          />
+          <EmployeesAddForm onAddEmployee={this.handleAddEmployee} />
+        </main>
+      </>
     )
   }
 }
