@@ -34,7 +34,7 @@ class EmployeesAddForm extends Component {
 
     return (
       <section className={styles.wrapper}>
-        <h3 className='mb-3'>Add new Employee</h3>
+        <h3 className='mb-3'>Add new Big Head !</h3>
         <form
           className='d-flex gap-4'
           onSubmit={this.handleSubmit}

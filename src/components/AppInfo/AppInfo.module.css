@@ -1,20 +1,24 @@
 .wrapper {
   position: relative;
-  padding: 2em 2.5em;
+  padding: 1.5em 2.5em;
   color: var(--app-accent-color);
   background-color: var(--app-bg-color);
   border-radius: 16px;
   box-shadow: 8px 8px 0 0 var(--app-accent-color);
+  transform: rotate(-2deg);
 }
 .wrapper h1 {
-  color: var(--app-font-light-color);
+  color: hsl(0, 0%, 80%);
 }
 
 .logo {
   position: absolute;
-  bottom: 50%;
+  width: 170px;
+  height: auto;
+  bottom: 1em;
   right: 1em;
-  transform: translateY(50%);
+  /* transform: translateY(50%); */
+  /* transform: rotate(-5deg); */
 }
 
 .counter {
