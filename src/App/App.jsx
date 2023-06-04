@@ -86,7 +86,7 @@ class App extends Component {
       <>
         <Header />
         <main className={cn(styles.main, 'container-lg d-flex flex-column p-4 gap-5 mb-4')}>
-          <AppInfo />
+          <AppInfo employees={employeesData} />
 
           <section
             style={{
