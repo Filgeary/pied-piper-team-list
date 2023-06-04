@@ -14,10 +14,22 @@ const cn = classNames.bind(styles)
 class App extends Component {
   state = {
     employeesData: [
-      { id: 1, fullName: 'Richard Boss', salary: 3000, isRewarded: true },
-      { id: 2, fullName: 'Gilfoyle Architect', salary: 1501, isRewarded: true },
-      { id: 3, fullName: 'Dinesh Javist', salary: 1500, isRewarded: false },
-      { id: 4, fullName: 'Bachman kinda-Startup-er', salary: 0, isRewarded: false },
+      { id: 1, fullName: 'Richard Boss', salary: 3000, isRewarded: true, isPromotioned: false },
+      {
+        id: 2,
+        fullName: 'Gilfoyle Architect',
+        salary: 1501,
+        isRewarded: true,
+        isPromotioned: false,
+      },
+      { id: 3, fullName: 'Dinesh Javist', salary: 1500, isRewarded: false, isPromotioned: true },
+      {
+        id: 4,
+        fullName: 'Bachman kinda-Startup-er',
+        salary: 0,
+        isRewarded: false,
+        isPromotioned: true,
+      },
     ],
   }
 
@@ -32,6 +44,38 @@ class App extends Component {
   handleAddEmployee = newItem => {
     this.setState(prevState => {
       return { employeesData: prevState.employeesData.concat(newItem) }
+    })
+  }
+
+  handleToggleStatusPromotioned = id => {
+    this.setState(prevState => {
+      return {
+        employeesData: prevState.employeesData.map(item => {
+          if (item.id === id) {
+            return {
+              ...item,
+              isPromotioned: !item.isPromotioned,
+            }
+          }
+          return item
+        }),
+      }
+    })
+  }
+
+  handleToggleStatusRewarded = id => {
+    this.setState(prevState => {
+      return {
+        employeesData: prevState.employeesData.map(item => {
+          if (item.id === id) {
+            return {
+              ...item,
+              isRewarded: !item.isRewarded,
+            }
+          }
+          return item
+        }),
+      }
     })
   }
 
@@ -60,6 +104,8 @@ class App extends Component {
           <EmployeesList
             employees={employeesData}
             onDeleteEmployee={this.handleDeleteEmployee}
+            onToggleStatusPromotioned={this.handleToggleStatusPromotioned}
+            onToggleStatusRewarded={this.handleToggleStatusRewarded}
           />
           <EmployeesAddForm onAddEmployee={this.handleAddEmployee} />
         </main>

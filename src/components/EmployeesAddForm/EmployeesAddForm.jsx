@@ -24,6 +24,7 @@ class EmployeesAddForm extends Component {
       fullName: fullName.trim(),
       salary: salary.trim(),
       isRewarded: false,
+      isPromotioned: false,
     }
     onAddEmployee(newItem)
     this.setState({ fullName: '', salary: '' })
