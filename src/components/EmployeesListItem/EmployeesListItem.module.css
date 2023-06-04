@@ -15,6 +15,7 @@
 
 .wrapper input {
   text-align: center;
+  background-color: inherit;
   border: 0;
   transition: color 0.2s;
 }
@@ -29,24 +30,24 @@
   cursor: pointer;
 }
 
-.btnStar {
+.iconChevronUp {
   width: 35px;
   height: 35px;
   text-align: center;
   line-height: 35px;
   font-size: 16px;
   transition: 0.3s all;
-  transform: translateX(30px);
+  transform: translateY(30px);
   opacity: 0;
 }
 
-.btnStarLike {
+.iconChevronUpChecked {
   opacity: 1;
-  transform: translateX(0px);
+  transform: translateY(0px);
 }
 
-.promotion {
-  color: #e09f3e;
+.reward {
+  color: var(--app-accent-color);
 }
 
 .wrapper.increase i {

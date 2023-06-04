@@ -23,6 +23,7 @@ class EmployeesAddForm extends Component {
       id: uniqueId('employee-'),
       fullName: fullName.trim(),
       salary: salary.trim(),
+      isRewarded: false,
       isPromotioned: false,
     }
     onAddEmployee(newItem)
@@ -34,7 +35,7 @@ class EmployeesAddForm extends Component {
 
     return (
       <section className={styles.wrapper}>
-        <h3 className='mb-3'>Add new Employee</h3>
+        <h3 className='mb-3'>Add new Big Head !</h3>
         <form
           className='d-flex gap-4'
           onSubmit={this.handleSubmit}
@@ -43,7 +44,7 @@ class EmployeesAddForm extends Component {
             type='text'
             name='fullName'
             className='form-control new-post-label'
-            placeholder="What's his/her Full Name?"
+            placeholder='Full Name'
             value={fullName}
             onChange={this.handleChangeInput}
           />
@@ -51,7 +52,7 @@ class EmployeesAddForm extends Component {
             type='number'
             name='salary'
             className='form-control new-post-label'
-            placeholder='Salary in $?'
+            placeholder='Salary in $'
             value={salary}
             onChange={this.handleChangeInput}
           />
@@ -59,7 +60,7 @@ class EmployeesAddForm extends Component {
           <button
             type='submit'
             style={{ minWidth: '25%' }}
-            className='btn btn-primary'
+            className='btn btn-success'
           >
             Add Employee
           </button>
