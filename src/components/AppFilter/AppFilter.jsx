@@ -1,57 +1,32 @@
-import cn from 'classnames'
 import React from 'react'
 // import styles from './AppFilter.module.css'
 
 const AppFilter = ({ filterStatus, onSetFilter }) => {
+  const buttons = [
+    { buttonName: 'all', label: 'All Employees' },
+    { buttonName: 'rewarded', label: 'Rewarded' },
+    { buttonName: 'promotioned', label: 'Promotioned' },
+    { buttonName: 'salaryMore1500', label: 'Salary > 1500$' },
+  ]
+
   return (
     <div className='btn-group'>
-      <button
-        type='button'
-        className={cn('btn', {
-          'btn-secondary': filterStatus === 'all',
-          'btn-outline-secondary': filterStatus !== 'all',
-        })}
-        data-filter='all'
-        onClick={evt => onSetFilter(evt.currentTarget.getAttribute('data-filter'))}
-      >
-        All Employees
-      </button>
+      {buttons.map(item => {
+        const { buttonName, label } = item
+        const isActive = filterStatus === buttonName
+        const classes = isActive ? 'btn-secondary' : 'btn-outline-secondary'
 
-      <button
-        type='button'
-        className={cn('btn', {
-          'btn-secondary': filterStatus === 'rewarded',
-          'btn-outline-secondary': filterStatus !== 'rewarded',
-        })}
-        data-filter='rewarded'
-        onClick={evt => onSetFilter(evt.currentTarget.getAttribute('data-filter'))}
-      >
-        Rewarded
-      </button>
-
-      <button
-        type='button'
-        className={cn('btn', {
-          'btn-secondary': filterStatus === 'promotioned',
-          'btn-outline-secondary': filterStatus !== 'promotioned',
-        })}
-        data-filter='promotioned'
-        onClick={evt => onSetFilter(evt.currentTarget.getAttribute('data-filter'))}
-      >
-        Promotioned
-      </button>
-
-      <button
-        type='button'
-        className={cn('btn', {
-          'btn-secondary': filterStatus === 'salary',
-          'btn-outline-secondary': filterStatus !== 'salary',
-        })}
-        data-filter='salary'
-        onClick={evt => onSetFilter(evt.currentTarget.getAttribute('data-filter'))}
-      >
-        Salary &gt; 1500$
-      </button>
+        return (
+          <button
+            key={buttonName}
+            type='button'
+            className={`btn ${classes}`}
+            onClick={() => onSetFilter(buttonName)}
+          >
+            {label}
+          </button>
+        )
+      })}
     </div>
   )
 }

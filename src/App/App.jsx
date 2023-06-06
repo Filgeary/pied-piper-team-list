@@ -101,7 +101,7 @@ class App extends Component {
         return data.filter(elem => elem.isRewarded)
       case 'promotioned':
         return data.filter(elem => elem.isPromotioned)
-      case 'salary':
+      case 'salaryMore1500':
         return data.filter(elem => elem.salary > 1500)
       default:
         return data
@@ -110,8 +110,10 @@ class App extends Component {
 
   render() {
     const { employees, searchQuery, filterStatus } = this.state
-    const visibleData = this.showDataBySearchQuery(employees, searchQuery)
-    const filteredData = this.filterDataByFilter(visibleData, filterStatus)
+    const visibleData = this.filterDataByFilter(
+      this.showDataBySearchQuery(employees, searchQuery),
+      filterStatus,
+    )
 
     return (
       <>
@@ -136,7 +138,7 @@ class App extends Component {
           </section>
 
           <EmployeesList
-            employees={filteredData}
+            employees={visibleData}
             onDeleteEmployee={this.handleDeleteEmployee}
             onToggleStatusPromotioned={this.handleToggleStatusPromotioned}
             onToggleStatusRewarded={this.handleToggleStatusRewarded}
