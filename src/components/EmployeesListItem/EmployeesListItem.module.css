@@ -8,15 +8,8 @@
 }
 
 .wrapper span {
-  cursor: pointer;
-  min-width: 40%;
-  transition: color 0.2s;
-}
-
-.wrapper input {
+  min-width: 25%;
   text-align: center;
-  background-color: inherit;
-  border: 0;
   transition: color 0.2s;
 }
 
@@ -28,6 +21,16 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.label {
+  min-width: 40%;
+  padding-left: 1em;
+  text-align: left;
+  background-color: initial;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0%, rgba(255, 255, 255, 1) 100%);
+  cursor: pointer;
+  transition: color 0.2s;
 }
 
 .iconChevronUp {
@@ -48,8 +51,4 @@
 
 .reward {
   color: var(--app-accent-color);
-}
-
-.wrapper.increase i {
-  color: #aeaeae;
 }

@@ -1,33 +1,32 @@
 import React from 'react'
 // import styles from './AppFilter.module.css'
 
-const AppFilter = () => {
+const AppFilter = ({ filterStatus, onSetFilter }) => {
+  const buttons = [
+    { buttonName: 'all', label: 'All Employees' },
+    { buttonName: 'rewarded', label: 'Rewarded' },
+    { buttonName: 'promotioned', label: 'Promotioned' },
+    { buttonName: 'salaryMore1500', label: 'Salary > 1500$' },
+  ]
+
   return (
     <div className='btn-group'>
-      <button
-        type='button'
-        className='btn btn-secondary'
-      >
-        All Employees
-      </button>
-      <button
-        type='button'
-        className='btn btn-outline-secondary'
-      >
-        Rewarded
-      </button>
-      <button
-        type='button'
-        className='btn btn-outline-secondary'
-      >
-        Promotioned
-      </button>
-      <button
-        type='button'
-        className='btn btn-outline-secondary'
-      >
-        Salary &gt; 1500$
-      </button>
+      {buttons.map(item => {
+        const { buttonName, label } = item
+        const isActive = filterStatus === buttonName
+        const classes = isActive ? 'btn-secondary' : 'btn-outline-secondary'
+
+        return (
+          <button
+            key={buttonName}
+            type='button'
+            className={`btn ${classes}`}
+            onClick={() => onSetFilter(buttonName)}
+          >
+            {label}
+          </button>
+        )
+      })}
     </div>
   )
 }

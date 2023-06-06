@@ -13,7 +13,7 @@ const cn = classNames.bind(styles)
 
 class App extends Component {
   state = {
-    employeesData: [
+    employees: [
       { id: 1, fullName: 'Richard Boss', salary: 3000, isRewarded: true, isPromotioned: false },
       {
         id: 2,
@@ -31,26 +31,28 @@ class App extends Component {
         isPromotioned: true,
       },
     ],
+    searchQuery: '',
+    filterStatus: 'all',
   }
 
   handleDeleteEmployee = id => {
     this.setState(prevState => {
       return {
-        employeesData: prevState.employeesData.filter(elem => elem.id !== id),
+        employees: prevState.employees.filter(elem => elem.id !== id),
       }
     })
   }
 
   handleAddEmployee = newItem => {
     this.setState(prevState => {
-      return { employeesData: prevState.employeesData.concat(newItem) }
+      return { employees: prevState.employees.concat(newItem) }
     })
   }
 
   handleToggleStatusPromotioned = id => {
     this.setState(prevState => {
       return {
-        employeesData: prevState.employeesData.map(item => {
+        employees: prevState.employees.map(item => {
           if (item.id === id) {
             return {
               ...item,
@@ -66,7 +68,7 @@ class App extends Component {
   handleToggleStatusRewarded = id => {
     this.setState(prevState => {
       return {
-        employeesData: prevState.employeesData.map(item => {
+        employees: prevState.employees.map(item => {
           if (item.id === id) {
             return {
               ...item,
@@ -79,14 +81,45 @@ class App extends Component {
     })
   }
 
+  handleChangeSearchInput = searchQuery => {
+    this.setState({ searchQuery: searchQuery.trim() })
+  }
+
+  handleSetFilter = filterValue => {
+    this.setState({ filterStatus: filterValue })
+  }
+
+  showDataBySearchQuery = (data, query) => {
+    return data.filter(elem => elem.fullName.toLowerCase().includes(query.toLowerCase()))
+  }
+
+  filterDataByFilter = (data, filter) => {
+    switch (filter) {
+      case 'all':
+        return data
+      case 'rewarded':
+        return data.filter(elem => elem.isRewarded)
+      case 'promotioned':
+        return data.filter(elem => elem.isPromotioned)
+      case 'salaryMore1500':
+        return data.filter(elem => elem.salary > 1500)
+      default:
+        return data
+    }
+  }
+
   render() {
-    const { employeesData } = this.state
+    const { employees, searchQuery, filterStatus } = this.state
+    const visibleData = this.filterDataByFilter(
+      this.showDataBySearchQuery(employees, searchQuery),
+      filterStatus,
+    )
 
     return (
       <>
         <Header />
         <main className={cn(styles.main, 'container-lg d-flex flex-column p-4 gap-5 mb-4')}>
-          <AppInfo employees={employeesData} />
+          <AppInfo employees={employees} />
 
           <section
             style={{
@@ -97,12 +130,15 @@ class App extends Component {
             }}
             className='d-flex flex-column gap-3'
           >
-            <SearchPanel />
-            <AppFilter />
+            <SearchPanel onChangeInput={this.handleChangeSearchInput} />
+            <AppFilter
+              filterStatus={filterStatus}
+              onSetFilter={this.handleSetFilter}
+            />
           </section>
 
           <EmployeesList
-            employees={employeesData}
+            employees={visibleData}
             onDeleteEmployee={this.handleDeleteEmployee}
             onToggleStatusPromotioned={this.handleToggleStatusPromotioned}
             onToggleStatusRewarded={this.handleToggleStatusRewarded}
