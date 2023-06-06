@@ -18,8 +18,10 @@ const EmployeesListItem = ({
   return (
     <div className={styles.wrapper}>
       <li className={'list-group-item d-flex justify-content-between align-items-center'}>
-        <span
-          className={cn('list-group-item-label', { [styles.reward]: isRewarded })}
+        <button
+          className={cn(styles.label, 'btn-sm flex-grow-1', {
+            [styles.reward]: isRewarded,
+          })}
           title='Toggle Promotion'
           onClick={() => onToggleStatusPromotioned(id)}
         >
@@ -28,12 +30,8 @@ const EmployeesListItem = ({
           <small className='fst-italic fw-light'>
             <mark>id: {truncate(String(id), { length: 15 })}</mark>
           </small>
-        </span>
-        <input
-          type='text'
-          className={cn('list-group-item-input', { [styles.reward]: isRewarded })}
-          defaultValue={`${salary}$`}
-        />
+        </button>
+        <span className={cn({ [styles.reward]: isRewarded })}>{salary + '$'}</span>
 
         <div className='d-flex justify-content-center align-items-center'>
           <button
