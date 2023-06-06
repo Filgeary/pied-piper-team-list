@@ -32,6 +32,7 @@ class App extends Component {
       },
     ],
     searchQuery: '',
+    filterStatus: 'all',
   }
 
   handleDeleteEmployee = id => {
@@ -84,13 +85,33 @@ class App extends Component {
     this.setState({ searchQuery: searchQuery.trim() })
   }
 
+  handleSetFilter = filterValue => {
+    this.setState({ filterStatus: filterValue })
+  }
+
   showDataBySearchQuery = (data, query) => {
     return data.filter(elem => elem.fullName.toLowerCase().includes(query.toLowerCase()))
   }
 
+  filterDataByFilter = (data, filter) => {
+    switch (filter) {
+      case 'all':
+        return data
+      case 'rewarded':
+        return data.filter(elem => elem.isRewarded)
+      case 'promotioned':
+        return data.filter(elem => elem.isPromotioned)
+      case 'salary':
+        return data.filter(elem => elem.salary > 1500)
+      default:
+        return data
+    }
+  }
+
   render() {
-    const { employees, searchQuery } = this.state
+    const { employees, searchQuery, filterStatus } = this.state
     const visibleData = this.showDataBySearchQuery(employees, searchQuery)
+    const filteredData = this.filterDataByFilter(visibleData, filterStatus)
 
     return (
       <>
@@ -108,11 +129,14 @@ class App extends Component {
             className='d-flex flex-column gap-3'
           >
             <SearchPanel onChangeInput={this.handleChangeSearchInput} />
-            <AppFilter />
+            <AppFilter
+              filterStatus={filterStatus}
+              onSetFilter={this.handleSetFilter}
+            />
           </section>
 
           <EmployeesList
-            employees={visibleData}
+            employees={filteredData}
             onDeleteEmployee={this.handleDeleteEmployee}
             onToggleStatusPromotioned={this.handleToggleStatusPromotioned}
             onToggleStatusRewarded={this.handleToggleStatusRewarded}
