@@ -135,7 +135,12 @@ button {
   color: var(--app-font-dark-color);
 }
 section {
-  padding: 1.5em 2em;
+  padding: 1em 1.5em;
   /* background-color: var(--app-bg-color); */
   border-radius: 16px;
+}
+@media (min-width: 768px) {
+  section {
+    padding: 1.5em 2em;
+  }
 }

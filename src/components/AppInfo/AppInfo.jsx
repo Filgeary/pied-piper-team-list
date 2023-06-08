@@ -9,7 +9,7 @@ const AppInfo = ({ employees }) => {
 
   return (
     <section className={styles.wrapper}>
-      <h1 className='text-center mb-4'>Amazing Crew at company</h1>
+      <h1 className={styles.h1}>Amazing Crew at company</h1>
       <h5 className='mb-2 fw-normal fst-italic'>
         Total Employees: <span className={styles.counter}>{total}</span>
       </h5>

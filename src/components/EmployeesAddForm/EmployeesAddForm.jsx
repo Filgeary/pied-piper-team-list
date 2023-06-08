@@ -1,6 +1,9 @@
+import classNames from 'classnames/bind'
 import { uniqueId } from 'lodash-es'
 import React, { Component } from 'react'
 import styles from './EmployeesAddForm.module.css'
+
+const cn = classNames.bind(styles)
 
 class EmployeesAddForm extends Component {
   state = {
@@ -41,7 +44,7 @@ class EmployeesAddForm extends Component {
       <section className={styles.wrapper}>
         <h3 className='mb-3'>Add new Big Head !</h3>
         <form
-          className='d-flex gap-4'
+          className={cn(styles.form, 'd-flex gap-4')}
           onSubmit={this.handleSubmit}
         >
           <input

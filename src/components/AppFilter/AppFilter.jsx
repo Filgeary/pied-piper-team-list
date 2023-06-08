@@ -10,7 +10,7 @@ const AppFilter = ({ filterStatus, onSetFilter }) => {
   ]
 
   return (
-    <div className='btn-group'>
+    <div className='btn-group flex-wrap'>
       {buttons.map(item => {
         const { buttonName, label } = item
         const isActive = filterStatus === buttonName

@@ -1,22 +1,47 @@
 .wrapper {
   position: relative;
-  padding: 1.5em 2.5em;
+  width: 100%;
+  margin: 0 auto;
   color: var(--app-accent-color);
   background-color: var(--app-bg-color);
   border-radius: 16px;
   box-shadow: 8px 8px 0 0 var(--app-accent-color);
   transform: rotate(-2deg);
 }
-.wrapper h1 {
+@media (min-width: 1200px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
+.h1 {
+  text-align: center;
   color: hsl(0, 0%, 80%);
+  margin-bottom: 4rem;
+}
+@media (min-width: 375px) {
+  .h1 {
+    margin-bottom: 1.5rem;
+  }
 }
 
 .logo {
   position: absolute;
-  width: 170px;
+  width: 100px;
   height: auto;
-  bottom: 1em;
-  right: 1em;
+  top: 14%;
+  right: -2%;
+  filter: drop-shadow(4px 2px 1px black);
+}
+@media (min-width: 768px) {
+  .logo {
+    position: absolute;
+    width: 170px;
+    height: auto;
+    top: unset;
+    bottom: 1em;
+    right: 1em;
+  }
 }
 
 .counter {

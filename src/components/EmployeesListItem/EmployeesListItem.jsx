@@ -17,7 +17,12 @@ const EmployeesListItem = ({
 }) => {
   return (
     <div className={styles.wrapper}>
-      <li className={'list-group-item d-flex justify-content-between align-items-center'}>
+      <li
+        className={cn(
+          styles.listItem,
+          'list-group-item d-flex flex-wrap justify-content-between align-items-center',
+        )}
+      >
         <button
           className={cn(styles.label, 'btn-sm flex-grow-1', {
             [styles.reward]: isRewarded,
@@ -36,7 +41,7 @@ const EmployeesListItem = ({
         <div className='d-flex justify-content-center align-items-center'>
           <button
             type='button'
-            className='btn-award btn-sm'
+            className={cn(styles.buttonIcon, 'btn-award btn-sm')}
             title='Toggle Reward'
             onClick={() => onToggleStatusRewarded(id)}
           >
@@ -55,7 +60,7 @@ const EmployeesListItem = ({
           <button
             type='button'
             title='Delete'
-            className='btn-trash btn-sm'
+            className={cn(styles.buttonIcon, 'btn-trash btn-sm')}
             onClick={() => onDeleteEmployee(id)}
           >
             <svg

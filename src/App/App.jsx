@@ -4,9 +4,9 @@ import AppFilter from '../components/AppFilter'
 import AppInfo from '../components/AppInfo'
 import EmployeesAddForm from '../components/EmployeesAddForm'
 import EmployeesList from '../components/EmployeesList'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
 import SearchPanel from '../components/SearchPanel'
+import Footer from '../layout/Footer'
+import Header from '../layout/Header'
 import styles from './App.module.css'
 
 const cn = classNames.bind(styles)
