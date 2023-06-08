@@ -89,11 +89,11 @@ class App extends Component {
     this.setState({ filterStatus: filterValue })
   }
 
-  showDataBySearchQuery = (data, query) => {
+  showEmployeesBySearchQuery = (data, query) => {
     return data.filter(elem => elem.fullName.toLowerCase().includes(query.toLowerCase()))
   }
 
-  filterDataByFilter = (data, filter) => {
+  filterEmployees = (data, filter) => {
     switch (filter) {
       case 'all':
         return data
@@ -110,8 +110,8 @@ class App extends Component {
 
   render() {
     const { employees, searchQuery, filterStatus } = this.state
-    const visibleData = this.filterDataByFilter(
-      this.showDataBySearchQuery(employees, searchQuery),
+    const visibleEmployees = this.filterEmployees(
+      this.showEmployeesBySearchQuery(employees, searchQuery),
       filterStatus,
     )
 
@@ -121,15 +121,9 @@ class App extends Component {
         <main className={cn(styles.main, 'container-lg d-flex flex-column p-4 gap-5 mb-4')}>
           <AppInfo employees={employees} />
 
-          <section
-            style={{
-              padding: '0 30px',
-              paddingRight: '0',
-              borderRadius: '0px',
-              borderLeft: '4px solid var(--app-accent-color)',
-            }}
-            className='d-flex flex-column gap-3'
-          >
+          <section className={cn(styles.searchWithFiltersWrapper, 'd-flex flex-column gap-3')}>
+            <h2 className='visually-hidden'>Search With Filters</h2>
+
             <SearchPanel onChangeInput={this.handleChangeSearchInput} />
             <AppFilter
               filterStatus={filterStatus}
@@ -138,7 +132,7 @@ class App extends Component {
           </section>
 
           <EmployeesList
-            employees={visibleData}
+            employees={visibleEmployees}
             onDeleteEmployee={this.handleDeleteEmployee}
             onToggleStatusPromotioned={this.handleToggleStatusPromotioned}
             onToggleStatusRewarded={this.handleToggleStatusRewarded}
