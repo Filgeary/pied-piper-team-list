@@ -8,6 +8,8 @@ class EmployeesAddForm extends Component {
     salary: '',
   }
 
+  inputFullNameRef = React.createRef()
+
   handleChangeInput = evt => {
     this.setState({ [evt.target.name]: evt.target.value })
   }
@@ -26,8 +28,10 @@ class EmployeesAddForm extends Component {
       isRewarded: false,
       isPromotioned: false,
     }
+
     onAddEmployee(newItem)
     this.setState({ fullName: '', salary: '' })
+    this.inputFullNameRef.current.focus()
   }
 
   render() {
@@ -46,6 +50,7 @@ class EmployeesAddForm extends Component {
             className='form-control new-post-label'
             placeholder='Full Name'
             value={fullName}
+            ref={this.inputFullNameRef}
             onChange={this.handleChangeInput}
           />
           <input
