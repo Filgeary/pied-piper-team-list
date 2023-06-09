@@ -1,14 +1,10 @@
-.wrapper {
-  padding: 4px 20px;
-  border-bottom: 1px solid #ccc;
-}
-
-.wrapper:last-child {
-  border-bottom: none;
-}
-
 .listItem {
   flex-direction: column;
+  padding: 4px 0;
+  border-bottom: 1px solid #ccc;
+}
+.listItem:last-child {
+  border-bottom: none;
 }
 @media (min-width: 768px) {
   .listItem {
@@ -16,7 +12,7 @@
   }
 }
 
-.wrapper span {
+.salary {
   min-width: 25%;
   text-align: center;
   transition: color 0.2s;
@@ -61,5 +57,5 @@
 }
 
 .reward {
-  color: var(--app-accent-color);
+  color: var(--app-accent-color-on-light-bg);
 }

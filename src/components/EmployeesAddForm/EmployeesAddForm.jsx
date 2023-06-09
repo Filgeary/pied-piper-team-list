@@ -42,7 +42,7 @@ class EmployeesAddForm extends Component {
 
     return (
       <section className={styles.wrapper}>
-        <h3 className='mb-3'>Add new Big Head !</h3>
+        <h2 className='mb-3 fs-3'>Add new Big Head !</h2>
         <form
           className={cn(styles.form, 'd-flex gap-4')}
           onSubmit={this.handleSubmit}
@@ -50,7 +50,8 @@ class EmployeesAddForm extends Component {
           <input
             type='text'
             name='fullName'
-            className='form-control new-post-label'
+            title='Full Name'
+            className='form-control'
             placeholder='Full Name'
             value={fullName}
             ref={this.inputFullNameRef}
@@ -59,7 +60,8 @@ class EmployeesAddForm extends Component {
           <input
             type='number'
             name='salary'
-            className='form-control new-post-label'
+            title='Salary'
+            className='form-control'
             placeholder='Salary in $'
             value={salary}
             onChange={this.handleChangeInput}

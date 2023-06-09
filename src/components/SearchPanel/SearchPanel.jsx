@@ -19,6 +19,7 @@ class SearchPanel extends Component {
       <input
         type='text'
         name='search'
+        title='Search'
         className='form-control search-input'
         placeholder='Search Cool Guy'
         value={inputValue}

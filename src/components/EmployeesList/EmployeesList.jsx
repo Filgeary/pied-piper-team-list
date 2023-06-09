@@ -9,25 +9,32 @@ const EmployeesList = ({
   onToggleStatusRewarded,
 }) => {
   return (
-    <ul className='p-0'>
-      {employees.map(employee => {
-        const { id, fullName, salary, isRewarded, isPromotioned } = employee
+    <section className='m-0 p-0'>
+      <h2 className='visually-hidden'>Employees List</h2>
 
-        return (
-          <EmployeesListItem
-            key={id}
-            id={id}
-            fullName={fullName}
-            salary={salary}
-            isRewarded={isRewarded}
-            isPromotioned={isPromotioned}
-            onDeleteEmployee={onDeleteEmployee}
-            onToggleStatusPromotioned={onToggleStatusPromotioned}
-            onToggleStatusRewarded={onToggleStatusRewarded}
-          />
-        )
-      })}
-    </ul>
+      <ul className='p-0'>
+        {employees?.length ? (
+          employees.map(employee => {
+            const { id, fullName, salary, isRewarded, isPromotioned } = employee
+            return (
+              <EmployeesListItem
+                key={id}
+                id={id}
+                fullName={fullName}
+                salary={salary}
+                isRewarded={isRewarded}
+                isPromotioned={isPromotioned}
+                onDeleteEmployee={onDeleteEmployee}
+                onToggleStatusPromotioned={onToggleStatusPromotioned}
+                onToggleStatusRewarded={onToggleStatusRewarded}
+              />
+            )
+          })
+        ) : (
+          <h3 className='text-center fst-italic'>Your Team is Lost!</h3>
+        )}
+      </ul>
+    </section>
   )
 }
 

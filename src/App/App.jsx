@@ -119,6 +119,8 @@ class App extends Component {
       <>
         <Header />
         <main className={cn(styles.main, 'container-lg d-flex flex-column p-4 gap-5 mb-4')}>
+          <h1 className='visually-hidden'>Pied-Piper Crew</h1>
+
           <AppInfo employees={employees} />
 
           <section className={cn(styles.searchWithFiltersWrapper, 'd-flex flex-column gap-3')}>

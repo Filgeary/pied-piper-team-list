@@ -4,7 +4,11 @@ import styles from './Header.module.css'
 const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.wrapper}></div>
+      <div
+        className={styles.wrapper}
+        role='img'
+        aria-label='Pied-Piper Full Team photo'
+      ></div>
     </header>
   )
 }

@@ -9,20 +9,22 @@ const AppInfo = ({ employees }) => {
 
   return (
     <section className={styles.wrapper}>
-      <h1 className={styles.h1}>Amazing Crew at company</h1>
-      <h5 className='mb-2 fw-normal fst-italic'>
-        Total Employees: <span className={styles.counter}>{total}</span>
-      </h5>
-      <h5 className='fw-normal fst-italic'>
-        Rewarded: <span className={styles.counter}>{rewardedCount}</span>
-      </h5>
-      <h5 className='fw-normal fst-italic'>
-        Promotioned: <span className={styles.counter}>{promotionedCount}</span>
-      </h5>
+      <h2 className={styles.heading}>Silicon&nbsp;Valley&nbsp;Crew</h2>
+      <div className='pt-2'>
+        <p className={styles.textInfo}>
+          Total Employees: <span className={styles.counter}>{total}</span>
+        </p>
+        <p className={styles.textInfo}>
+          Rewarded: <span className={styles.counter}>{rewardedCount}</span>
+        </p>
+        <p className={styles.textInfo}>
+          Promotioned: <span className={styles.counter}>{promotionedCount}</span>
+        </p>
+      </div>
       <img
         src={logo}
         className={styles.logo}
-        alt='logo'
+        alt='Pied Piper as logo'
       />
     </section>
   )
