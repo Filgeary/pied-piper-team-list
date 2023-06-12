@@ -17,6 +17,7 @@ const EmployeesListItem = ({
 }) => {
   return (
     <li
+      data-testid='employeesListItem'
       className={cn(
         styles.listItem,
         'list-group-item d-flex flex-wrap justify-content-between align-items-center',
@@ -35,12 +36,17 @@ const EmployeesListItem = ({
           <mark>id: {truncate(String(id), { length: 15 })}</mark>
         </small>
       </button>
-      <span className={cn(styles.salary, { [styles.reward]: isRewarded })}>{salary + '$'}</span>
+      <span
+        data-testid='employeesListItemSalary'
+        className={cn(styles.salary, { [styles.reward]: isRewarded })}
+      >
+        {salary + '$'}
+      </span>
 
       <div className='d-flex justify-content-center align-items-center'>
         <button
           type='button'
-          className={cn(styles.buttonIcon, 'btn-award btn-sm')}
+          className={cn(styles.buttonIcon, 'btn-award btn-sm', { [styles.reward]: isRewarded })}
           title='Toggle Reward'
           onClick={() => onToggleStatusRewarded(id)}
         >
@@ -48,8 +54,9 @@ const EmployeesListItem = ({
             xmlns='http://www.w3.org/2000/svg'
             width='16'
             height='16'
-            fill={isRewarded ? 'var(--app-accent-color)' : '#bbb'}
+            fill='#bbb'
             viewBox='0 0 16 16'
+            aria-label='icon-Reward'
           >
             <path d='m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z' />
             <path d='M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z' />
@@ -68,12 +75,14 @@ const EmployeesListItem = ({
             height='16'
             fill='#d4343a'
             viewBox='0 0 16 16'
+            aria-label='icon-Trash'
           >
             <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z' />
           </svg>
         </button>
 
         <i
+          data-testid='iconChevron'
           className={cn(styles.iconChevronUp, 'btn-sm', {
             [styles.iconChevronUpChecked]: isPromotioned,
           })}
@@ -84,6 +93,7 @@ const EmployeesListItem = ({
             height='1em'
             fill='currentColor'
             viewBox='0 0 16 16'
+            aria-label='icon-Chevron'
           >
             <path
               fillRule='evenodd'

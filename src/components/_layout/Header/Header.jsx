@@ -3,7 +3,10 @@ import styles from './Header.module.css'
 
 const Header = () => {
   return (
-    <header className={styles.header}>
+    <header
+      data-testid='header'
+      className={styles.header}
+    >
       <div
         className={styles.wrapper}
         role='img'

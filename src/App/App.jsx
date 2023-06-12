@@ -5,32 +5,16 @@ import AppInfo from '../components/AppInfo'
 import EmployeesAddForm from '../components/EmployeesAddForm'
 import EmployeesList from '../components/EmployeesList'
 import SearchPanel from '../components/SearchPanel'
-import Footer from '../layout/Footer'
-import Header from '../layout/Header'
+import Footer from '../components/_layout/Footer'
+import Header from '../components/_layout/Header'
+import { employeesData } from '../data/employeesData'
 import styles from './App.module.css'
 
 const cn = classNames.bind(styles)
 
 class App extends Component {
   state = {
-    employees: [
-      { id: 1, fullName: 'Richard Boss', salary: 3000, isRewarded: true, isPromotioned: false },
-      {
-        id: 2,
-        fullName: 'Gilfoyle Architect',
-        salary: 1501,
-        isRewarded: true,
-        isPromotioned: false,
-      },
-      { id: 3, fullName: 'Dinesh Javist', salary: 1500, isRewarded: false, isPromotioned: true },
-      {
-        id: 4,
-        fullName: 'Bachman kinda-Startup-er',
-        salary: 0,
-        isRewarded: false,
-        isPromotioned: true,
-      },
-    ],
+    employees: this.props.employees || employeesData,
     searchQuery: '',
     filterStatus: 'all',
   }

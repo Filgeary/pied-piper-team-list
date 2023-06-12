@@ -8,17 +8,38 @@ const AppInfo = ({ employees }) => {
   const promotionedCount = employees.filter(elem => elem.isPromotioned).length
 
   return (
-    <section className={styles.wrapper}>
+    <section
+      data-testid='appInfo'
+      className={styles.wrapper}
+    >
       <h2 className={styles.heading}>Silicon&nbsp;Valley&nbsp;Crew</h2>
       <div className='pt-2'>
         <p className={styles.textInfo}>
-          Total Employees: <span className={styles.counter}>{total}</span>
+          Total Employees:{' '}
+          <span
+            data-testid='totalCount'
+            className={styles.counter}
+          >
+            {total}
+          </span>
         </p>
         <p className={styles.textInfo}>
-          Rewarded: <span className={styles.counter}>{rewardedCount}</span>
+          Rewarded:{' '}
+          <span
+            data-testid='rewardedCount'
+            className={styles.counter}
+          >
+            {rewardedCount}
+          </span>
         </p>
         <p className={styles.textInfo}>
-          Promotioned: <span className={styles.counter}>{promotionedCount}</span>
+          Promotioned:{' '}
+          <span
+            data-testid='promotionedCount'
+            className={styles.counter}
+          >
+            {promotionedCount}
+          </span>
         </p>
       </div>
       <img

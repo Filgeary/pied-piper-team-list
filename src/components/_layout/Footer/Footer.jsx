@@ -3,7 +3,10 @@ import styles from './Footer.module.css'
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
+    <footer
+      data-testid='footer'
+      className={styles.footer}
+    >
       <small className={styles.text}>react fun demo project</small>
     </footer>
   )

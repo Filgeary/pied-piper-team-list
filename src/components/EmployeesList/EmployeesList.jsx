@@ -9,7 +9,10 @@ const EmployeesList = ({
   onToggleStatusRewarded,
 }) => {
   return (
-    <section className='m-0 p-0'>
+    <section
+      data-testid='employeesList'
+      className='m-0 p-0'
+    >
       <h2 className='visually-hidden'>Employees List</h2>
 
       <ul className='p-0'>
@@ -31,7 +34,7 @@ const EmployeesList = ({
             )
           })
         ) : (
-          <h3 className='text-center fst-italic'>Your Team is Lost!</h3>
+          <h3 className='text-center fst-italic'>Nobody here!</h3>
         )}
       </ul>
     </section>

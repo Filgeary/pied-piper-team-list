@@ -41,7 +41,10 @@ class EmployeesAddForm extends Component {
     const { fullName, salary } = this.state
 
     return (
-      <section className={styles.wrapper}>
+      <section
+        data-testid='employeesAddForm'
+        className={styles.wrapper}
+      >
         <h2 className='mb-3 fs-3'>Add new Big Head !</h2>
         <form
           className={cn(styles.form, 'd-flex gap-4')}
