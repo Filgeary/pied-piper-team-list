@@ -8,15 +8,14 @@
 
 ## Features
 
-- it's kinda advanced todo-list
+- it's kinda simple frontend CRUD app
 - Search, Filters, Form
-- simple frontend CRUD ops
 - tests
 
 ## Tech stack
 
 - nothing serious )
-- simple React 17 Classes (only for learning, I swear 😄)
+- React 17 Classes (only for learning, I swear 😄)
 - Bootstrap, dah
 
 ## Preview
