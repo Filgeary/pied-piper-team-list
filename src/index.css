@@ -87,7 +87,7 @@ body {
   margin: 0;
   padding: 0;
 
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
   font-style: normal;
@@ -124,7 +124,8 @@ input[type='radio'].visually-hidden {
   --app-bg-color: hsl(0, 0%, 15%);
   --app-font-light-color: white;
   --app-font-dark-color: #404040;
-  --app-accent-color: rgb(47, 159, 70);
+  --app-accent-color: hsl(132, 54%, 41%);
+  --app-accent-color-on-light-bg: hsl(132, 54%, 34%);
 }
 
 /* Custom styles */
@@ -135,7 +136,15 @@ button {
   color: var(--app-font-dark-color);
 }
 section {
-  padding: 1.5em 2em;
+  padding: 1em 1.5em;
   /* background-color: var(--app-bg-color); */
   border-radius: 16px;
+}
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+  section {
+    padding: 1.5em 2em;
+  }
 }

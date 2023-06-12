@@ -14,7 +14,7 @@
       rgba(0, 0, 0, 0) 80%,
       rgba(255, 255, 255, 1) 100%
     ),
-    url('../../assets/bg-wide-mobile.webp');
+    url('../../../assets/bg-wide-mobile.webp');
   background-size: cover !important;
 }
 
@@ -27,7 +27,7 @@
         rgba(0, 0, 0, 0) 80%,
         rgba(255, 255, 255, 1) 100%
       ),
-      url('../../assets/bg-wide.webp');
+      url('../../../assets/bg-wide.webp');
   }
 }
 @media (min-width: 960px) {

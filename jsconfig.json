@@ -12,6 +12,6 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true
   },
-  "include": ["src"],
+  "include": ["src", "_fixtures"],
   "exclude": ["node_modules", "**/node_modules/*"]
 }

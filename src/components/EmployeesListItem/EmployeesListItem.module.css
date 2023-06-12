@@ -1,19 +1,24 @@
-.wrapper {
-  padding: 4px 20px;
+.listItem {
+  flex-direction: column;
+  padding: 4px 0;
   border-bottom: 1px solid #ccc;
 }
-
-.wrapper:last-child {
+.listItem:last-child {
   border-bottom: none;
 }
+@media (min-width: 768px) {
+  .listItem {
+    flex-direction: row;
+  }
+}
 
-.wrapper span {
+.salary {
   min-width: 25%;
   text-align: center;
   transition: color 0.2s;
 }
 
-.wrapper button {
+.buttonIcon {
   width: 35px;
   height: 35px;
   margin: 3px;
@@ -25,8 +30,10 @@
 
 .label {
   min-width: 40%;
-  padding-left: 1em;
+  padding: 0.3em 1em;
   text-align: left;
+  border: none;
+  border-radius: 8px;
   background-color: initial;
   background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0%, rgba(255, 255, 255, 1) 100%);
   cursor: pointer;
@@ -50,5 +57,8 @@
 }
 
 .reward {
-  color: var(--app-accent-color);
+  color: var(--app-accent-color-on-light-bg);
+}
+.reward svg {
+  fill: var(--app-accent-color-on-light-bg);
 }

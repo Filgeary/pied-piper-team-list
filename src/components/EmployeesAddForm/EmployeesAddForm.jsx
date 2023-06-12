@@ -1,12 +1,17 @@
+import classNames from 'classnames/bind'
 import { uniqueId } from 'lodash-es'
 import React, { Component } from 'react'
 import styles from './EmployeesAddForm.module.css'
+
+const cn = classNames.bind(styles)
 
 class EmployeesAddForm extends Component {
   state = {
     fullName: '',
     salary: '',
   }
+
+  inputFullNameRef = React.createRef()
 
   handleChangeInput = evt => {
     this.setState({ [evt.target.name]: evt.target.value })
@@ -26,32 +31,40 @@ class EmployeesAddForm extends Component {
       isRewarded: false,
       isPromotioned: false,
     }
+
     onAddEmployee(newItem)
     this.setState({ fullName: '', salary: '' })
+    this.inputFullNameRef.current.focus()
   }
 
   render() {
     const { fullName, salary } = this.state
 
     return (
-      <section className={styles.wrapper}>
-        <h3 className='mb-3'>Add new Big Head !</h3>
+      <section
+        data-testid='employeesAddForm'
+        className={styles.wrapper}
+      >
+        <h2 className='mb-3 fs-3'>Add new Big Head !</h2>
         <form
-          className='d-flex gap-4'
+          className={cn(styles.form, 'd-flex gap-4')}
           onSubmit={this.handleSubmit}
         >
           <input
             type='text'
             name='fullName'
-            className='form-control new-post-label'
+            title='Full Name'
+            className='form-control'
             placeholder='Full Name'
             value={fullName}
+            ref={this.inputFullNameRef}
             onChange={this.handleChangeInput}
           />
           <input
             type='number'
             name='salary'
-            className='form-control new-post-label'
+            title='Salary'
+            className='form-control'
             placeholder='Salary in $'
             value={salary}
             onChange={this.handleChangeInput}

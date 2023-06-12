@@ -4,33 +4,17 @@ import AppFilter from '../components/AppFilter'
 import AppInfo from '../components/AppInfo'
 import EmployeesAddForm from '../components/EmployeesAddForm'
 import EmployeesList from '../components/EmployeesList'
-import Footer from '../components/Footer'
-import Header from '../components/Header'
 import SearchPanel from '../components/SearchPanel'
+import Footer from '../components/_layout/Footer'
+import Header from '../components/_layout/Header'
+import { employeesData } from '../data/employeesData'
 import styles from './App.module.css'
 
 const cn = classNames.bind(styles)
 
 class App extends Component {
   state = {
-    employees: [
-      { id: 1, fullName: 'Richard Boss', salary: 3000, isRewarded: true, isPromotioned: false },
-      {
-        id: 2,
-        fullName: 'Gilfoyle Architect',
-        salary: 1501,
-        isRewarded: true,
-        isPromotioned: false,
-      },
-      { id: 3, fullName: 'Dinesh Javist', salary: 1500, isRewarded: false, isPromotioned: true },
-      {
-        id: 4,
-        fullName: 'Bachman kinda-Startup-er',
-        salary: 0,
-        isRewarded: false,
-        isPromotioned: true,
-      },
-    ],
+    employees: this.props.employees || employeesData,
     searchQuery: '',
     filterStatus: 'all',
   }
@@ -89,11 +73,11 @@ class App extends Component {
     this.setState({ filterStatus: filterValue })
   }
 
-  showDataBySearchQuery = (data, query) => {
+  showEmployeesBySearchQuery = (data, query) => {
     return data.filter(elem => elem.fullName.toLowerCase().includes(query.toLowerCase()))
   }
 
-  filterDataByFilter = (data, filter) => {
+  filterEmployees = (data, filter) => {
     switch (filter) {
       case 'all':
         return data
@@ -110,8 +94,8 @@ class App extends Component {
 
   render() {
     const { employees, searchQuery, filterStatus } = this.state
-    const visibleData = this.filterDataByFilter(
-      this.showDataBySearchQuery(employees, searchQuery),
+    const visibleEmployees = this.filterEmployees(
+      this.showEmployeesBySearchQuery(employees, searchQuery),
       filterStatus,
     )
 
@@ -119,17 +103,13 @@ class App extends Component {
       <>
         <Header />
         <main className={cn(styles.main, 'container-lg d-flex flex-column p-4 gap-5 mb-4')}>
+          <h1 className='visually-hidden'>Pied-Piper Crew</h1>
+
           <AppInfo employees={employees} />
 
-          <section
-            style={{
-              padding: '0 30px',
-              paddingRight: '0',
-              borderRadius: '0px',
-              borderLeft: '4px solid var(--app-accent-color)',
-            }}
-            className='d-flex flex-column gap-3'
-          >
+          <section className={cn(styles.searchWithFiltersWrapper, 'd-flex flex-column gap-3')}>
+            <h2 className='visually-hidden'>Search With Filters</h2>
+
             <SearchPanel onChangeInput={this.handleChangeSearchInput} />
             <AppFilter
               filterStatus={filterStatus}
@@ -138,7 +118,7 @@ class App extends Component {
           </section>
 
           <EmployeesList
-            employees={visibleData}
+            employees={visibleEmployees}
             onDeleteEmployee={this.handleDeleteEmployee}
             onToggleStatusPromotioned={this.handleToggleStatusPromotioned}
             onToggleStatusRewarded={this.handleToggleStatusRewarded}
