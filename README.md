@@ -9,7 +9,10 @@
 ## Features
 
 - it's kinda simple frontend CRUD app
-- Search, Filters, Form
+- add/remove Employee
+- search Employee
+- mark Employee as rewarded/promotioned
+- filter Employees by all/rewarded/promotioned/salary
 - tests
 
 ## Tech stack
